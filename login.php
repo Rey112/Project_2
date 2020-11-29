@@ -5,6 +5,7 @@
 
     if (strpos($email, '@') == false ) {
         echo 'Email must contain an @ character';
+        echo '<br>';
     }
 
     if (empty($password)) {
@@ -26,7 +27,9 @@
 ?>
 
 <html>
-<head><title>Display Login Information</title></head>
+<head>
+    <title>Display Login Information</title></head>
+    <link rel="stylesheet" type="text/css" href="main.css">
 <body>
 
     <h2>Login Inputs</h2>
@@ -36,7 +39,7 @@
     <div>
         Password: <?php echo $password; ?>
     </div>
-    <a href="question.html">Click Next to go to Questions</a>
+    <div style="text-align: center"><a href="question.html">Click Next to go to Questions</a></div>
 </body>
 </html>
 

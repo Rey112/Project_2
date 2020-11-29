@@ -13,14 +13,19 @@
     }
     if (empty($firstName)){
         echo 'First name is empty'; }
+        echo "<br>";
     if (empty($lastName)){
         echo 'Last name is empty'; }
+        echo "<br>";
     if (empty($birthday)){
         echo 'Birthday is empty'; }
+        echo "<br>";
     if (empty($email)){
         echo 'Email is empty'; }
+        echo "<br>";
     if (strpos($email, '@') == false ) {
         echo 'Email must contain an @ character';
+        echo "<br>";
       }
 
 
@@ -29,6 +34,7 @@
 <html>
 <body>
 <head>
+    <link rel="stylesheet" type="text/css" href="register_display.css">
     <h2>Display Registration Inputs</h2>
     <div>
         <?php echo "Registration is complete <br>"; ?>

@@ -54,6 +54,7 @@
         Question Skills Array: <?php print_r($questionSkills); ?><br>
     </div>
 
+    <div type="text-align: center"><input type ="submit" value="Add New Question"></div>
 
 </body>
 </html>
