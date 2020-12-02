@@ -21,6 +21,7 @@ if(strlen($password) >=8) {
              VALUES
                 (:email, :fname, :lname, :birthday, :password)';
 
+    global $db;
     $statement = $db->prepare($query);
 
     $statement->bindValue(':email', $email);

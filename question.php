@@ -1,5 +1,8 @@
 <?php
 
+    require('pdo.php');
+    require('questions_db.php');
+
     //defining the question variables
     $questionOfChoice = filter_input(INPUT_POST, 'questionOfChoice');
     $questionBody = filter_input(INPUT_POST, 'questionBody');
@@ -31,7 +34,7 @@
         echo '2 skills must be entered';
         echo"<br>";
     }
-
+    
 ?>
 
 <html>

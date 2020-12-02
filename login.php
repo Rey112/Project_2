@@ -1,5 +1,7 @@
 <?php
 
+    require('pdo.php');
+
       $email = filter_input(INPUT_POST, 'email');
       $password = filter_input(INPUT_POST, 'password');
 
@@ -24,6 +26,18 @@
         $data = htmlspecialchars($data);
         return data;
     }
+
+    $query = 'INSERT INTO accounts
+                (email, password)
+             VALUES
+                (:email, :password)';
+
+    global $db;
+    $statement = $db->prepare($query);
+
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':password', $password);
+
 ?>
 
 <html>

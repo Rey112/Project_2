@@ -1,5 +1,5 @@
 <?php
-
+    require('pdo.php');
 
     $firstName = filter_input(INPUT_POST, 'firstName');
     $lastName = filter_input(INPUT_POST, 'lastName');
@@ -28,6 +28,23 @@
         echo "<br>";
       }
 
+$query = 'INSERT INTO accounts
+                (email, fname, lname, birthday, password)
+             VALUES
+                (:email, :fname, :lname, :birthday, :password)';
+
+    global $db;
+    $statement = $db->prepare($query);
+
+    $statement->bindValue(':email', $email);
+    $statement->bindValue(':fname', $firstName);
+    $statement->bindValue(':lname', $lastName);
+    $statement->bindValue(':birthday', $birthday);
+    $statement->bindValue(':password', $password);
+
+    $statement->execute();
+
+    $statement->closeCursor();
 
 ?>
 
