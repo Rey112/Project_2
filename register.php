@@ -28,24 +28,36 @@
         echo "<br>";
       }
 
-$query = 'INSERT INTO accounts
-                (email, fname, lname, birthday, password)
-             VALUES
-                (:email, :fname, :lname, :birthday, :password)';
+    function create_user($userId) {
+        global $db;
+        $query = 'SELECT * FROM questions WHERE ownerid = :userId';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':userId', $userId);
+        $statement->execute();
+        $account = $statement->fetchAll();
+        $statement->closeCursor();
 
-    global $db;
-    $statement = $db->prepare($query);
+        return $account;
+    }
 
-    $statement->bindValue(':email', $email);
-    $statement->bindValue(':fname', $firstName);
-    $statement->bindValue(':lname', $lastName);
-    $statement->bindValue(':birthday', $birthday);
-    $statement->bindValue(':password', $password);
+    function create_account($email, $firstName, $lastName, $birthday, $password)
+    {
+        global $db;
+        $query = 'INSERT INTO accounts
+                    (email, fname, lname, birthday, password)
+                  VALUES
+                    (:email, :fname, :lname, :birthday, :password)';
+        $statement = $db->prepare($query);
+        $statement->bindValue(':email', $email);
+        $statement->bindValue(':fname', $firstName);
+        $statement->bindValue(':lname', $lastName);
+        $statement->bindValue(':birthday', $birthday);
+        $statement->bindValue(':password', $password);
 
-    $statement->execute();
+        $statement->execute();
+        $statement->closeCursor();
 
-    $statement->closeCursor();
-
+    }
 ?>
 
 <html>
