@@ -15,28 +15,44 @@
     } elseif (strlen($password) <= 8){
         echo 'password must be 8 characters';
         echo "<br>";
-    } else {
-        echo 'password is valid';
-        echo "<br>";
     }
 
     function input_data($data) {
         $data = trim($data);
         $data = stripslashes($data);
         $data = htmlspecialchars($data);
-        return data;
+        return $data;
     }
 
-    $query = 'INSERT INTO accounts
-                (email, password)
-             VALUES
-                (:email, :password)';
+   function validate_login($email, $password) {
+       global $db;
+       $query = 'SELECT * FROM accounts WHERE email = :email AND password = :password';
+       $statement = $db->prepare($query);
+       $statement->bindValue(':email', $email);
+       $statement->bindValue(':password', $password);
+       $statement->execute();
+       $user = $statement->fetch();
+       $statement->closeCursor();
 
+   }
+function create_question ($questionOfChoice, $questionBody, $questionSkills, $ownerid)
+{
     global $db;
-    $statement = $db->prepare($query);
 
-    $statement->bindValue(':email', $email);
-    $statement->bindValue(':password', $password);
+    $query = 'INSERT INTO questions
+                    (title, body, skills, ownerid)
+              VALUES
+                    (:title, :body, :skills, :ownerid)';
+
+    $statement = $db->prepare($query);
+    $statement->bindValue(':questionOfChoice', $questionOfChoice);
+    $statement->bindValue(':questionBody', $questionBody);
+    $statement->bindValue(':questionSkills', $questionSkills);
+    $statement->bindValue(':ownerid', $ownerid);
+    $statement->execute();
+    $statement->closeCursor();
+}
+
 
 ?>
 
@@ -56,6 +72,10 @@
     <div style="text-align: center"><a href="question.html">Click Next to go to Questions</a></div>
 </body>
 </html>
+
+
+
+
 
 
 
