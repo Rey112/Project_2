@@ -74,7 +74,7 @@ function create_question ($questionOfChoice, $questionBody, $questionSkills, $ow
     <head>
         <title>Display Registration Information</title>
         <meta charset="UTF-8">
-        <h1>Question Display</h1>
+        <h1>Project 2 Question Display</h1>
         <link rel="stylesheet" type="text/css" href="questiondisplay.css">
     </head>
         <body>
@@ -97,7 +97,7 @@ function create_question ($questionOfChoice, $questionBody, $questionSkills, $ow
             <h2>Go To:</h2>
             <div type="text-align: center"><a href="questionform.php">Add New Question</div>
             <div type="text-align: center"><a href="login.html">Login</div>
-            <div type="text-align: center"><a href="register.php">Registration</div>
+            <div type="text-align: center"><a href="register.html">Registration</div>
 
         </body>
 </html>
