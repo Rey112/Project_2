@@ -27,6 +27,9 @@ input[type=submit] {
 }
 
 input[type=submit]:hover {
-    background-color: powderblue;
+    background-color: #68b2ef;
 }
 
+body {
+    background-color: powderblue;
+}
