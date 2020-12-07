@@ -8,7 +8,16 @@
     if (strpos($email, '@') == false ) {
         echo 'Email must contain an @ character';
         echo '<br>';
-    }
+    } else{
+        $userID=validate_login($email,$password);
+        if($userID==false){
+            header("location: .?action=display_registration");
+        }else{
+            header("location: .?action=display_questions&userID=$userID");
+        }
+
+        
+}
 
     if (empty($password)) {
         echo 'password is required';
@@ -62,6 +71,9 @@
     <div style="text-align: center"><a href="questionform.php">Click Next to go to Questions</a></div>
 </body>
 </html>
+
+
+
 
 
 
