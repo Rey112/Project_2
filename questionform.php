@@ -9,11 +9,10 @@ function get_users_questions ($userId) {
     $statement = $db->prepare($query);
     $statement->bindValue(':userId', $userId);
     $statement->execute();
-
-    $questions = $statement->fetchAll();
+    $questionform = $statement->fetchAll();
     $statement->closeCursor();
 
-    return $questions;
+    return $questionform;
 }
 
 
@@ -46,8 +45,10 @@ function create_question ($title, $body, $skills, $ownerid)
 </head>
 
 <body>
+    <a href="login.php">Login: </a>
+    <a href="register.php">Register: </a>
     <header>
-    <form action="question.php" method="post">
+    <form action="questiondisplay.php" method="post">
         <h2>Questions</h2>
         <div>
             <label for="questionOfChoice">Question of Choice</label>
