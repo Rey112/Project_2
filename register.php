@@ -28,7 +28,7 @@
         echo "<br>";
       }
 
-    function create_user($userId) {
+        function create_user($userId) {
         global $db;
         $query = 'SELECT * FROM questions WHERE ownerid = :userId';
         $statement = $db->prepare($query);
@@ -85,6 +85,9 @@
     </div>
 
     <a href="login.html">Go back to login</a>
+    <br>
+    <h2>Go To:</h2>
+    <div type="text-align: center"><a href="questionform.php">Question Form</div>
 </head>
 </body>
 </html>
