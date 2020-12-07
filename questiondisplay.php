@@ -65,33 +65,40 @@ function create_question ($questionOfChoice, $questionBody, $questionSkills, $ow
     $statement->bindValue(':ownerid', $ownerid);
     $statement->execute();
     $statement->closeCursor();
+
 }
 //This displays the questions on the form.
 ?>
 
 <html>
-<head><title>Display Registration Information</title></head>
-<body>
+    <head>
+        <title>Display Registration Information</title>
+        <meta charset="UTF-8">
+        <h1>Question Display</h1>
+        <link rel="stylesheet" type="text/css" href="questiondisplay.css">
+    </head>
+        <body>
+            <h2>Question Choice Input</h2>
+                <div>
+                    Question Choice: <?php echo $questionOfChoice; ?>
+                </div>
+            <br>
 
-<h2>First Name</h2>
+            <h2>Question Body Input</h2>
+                <div>
+                    Question Body: <?php echo $questionBody; ?>
+                </div>
+            <br>
+            <h2>Question Skills Input</h2>
+                <div>
+                    Question Skills Array: <?php print_r($questionSkills); ?><br>
+                </div>
+            <br>
+            <h2>Go To:</h2>
+            <div type="text-align: center"><a href="questionform.php">Add New Question</div>
+            <div type="text-align: center"><a href="login.html">Login</div>
+            <div type="text-align: center"><a href="register.php">Registration</div>
 
-<h2>Question Choice Input</h2>
-<div>
-    Question Choice: <?php echo $questionOfChoice; ?>
-</div>
-
-<h2>Question Body Input</h2>
-<div>
-    Question Body:<br>
-    <?php echo $questionBody; ?>
-</div>
-
-<h2>Question Skills Input</h2>
-<div>
-    Question Skills Array: <?php print_r($questionSkills); ?><br>
-</div>
-
-<div type="text-align: center"><a href="questionform.php">Add New Question</div>
-
-</body>
+        </body>
 </html>
+
