@@ -11,9 +11,9 @@
     } else{
         $userID=validate_login($email,$password);
         if($userID==false){
-            header("location: .?action=display_registration");
+            header("Location: .?action=display_registration");
         }else{
-            header("location: .?action=display_questions&userID=$userID");
+            header("Location: .?action=display_questions&userID=$userID");
         }
 
         
